@@ -1,0 +1,160 @@
+/* Общий стиль */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: linear-gradient(270deg, #ff7eb3, #ff758c, #ff9b9b, #ffc5b3);
+  background-size: 800% 800%;
+  animation: backgroundMove 10s ease infinite;
+  overflow-x: hidden;
+  min-height: 200vh;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.text-overlay {
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+}
+
+.text-overlay h1 {
+  font-size: 3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid white;
+  animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+}
+
+.text-overlay p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+/* Прокрутка */
+.scroll {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  animation: fadeInOut 2s infinite;
+}
+
+/* Конфетти */
+.confetti {
+  position: fixed;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Падающие звезды */
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  animation: fallStar linear infinite;
+}
+
+@keyframes fallStar {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(500px, 500px);
+    opacity: 0;
+  }
+}
+
+/* Салют */
+.firework {
+  position: fixed;
+  bottom: 0;
+  width: 5px;
+  height: 20px;
+  background: linear-gradient(to top, #ff758c, #ffc5b3);
+  animation: rise 1s ease-out, explode 0.5s ease-out 1s;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-300px);
+  }
+}
+
+@keyframes explode {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Фон анимация */
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
