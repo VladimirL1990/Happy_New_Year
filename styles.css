@@ -31,18 +31,82 @@ body {
   text-align: center;
   z-index: 2;
 }
+ 
+.text-overlay p {
+  margin: 0;
+	padding: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeSlideIn 1s ease-out forwards;
+}
 
-.text-overlay h1 {
-  font-size: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid white;
-  animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+h1 span {
+  position: relative;
+  display: inline-block;
+  font-size: 2vw;
+  color: white;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #ccc,
+               0 3px 0 #ccc,
+               0 4px 0 #ccc,
+               0 5px 0 #ccc,
+               0 6px 0 transparent,
+               0 7px 0 transparent,
+               0 8px 0 transparent,
+               0 9px 0 transparent,
+               0 10px 0 transparent,
+               0 11px 0 transparent,
+               0 12px 0 rgba(0, 0, 0, 0.5);
+  animation: animate 1s infinite alternate;
+}
+
+h1 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+h1 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+h1 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+h1 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+h1 span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+h1 span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+h1 span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+h1 span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+h1 span:nth-child(10) {
+  animation-delay: 0.9s;
+}
+h1 span:nth-child(11) {
+  animation-delay: 1s;
+}
+h1 span:nth-child(12) {
+  animation-delay: 1.1s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
 }
 
 .text-overlay p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-top: 10px;
+  animation-delay: 1s;
 }
 
 /* Прокрутка */
@@ -135,18 +199,14 @@ body {
   }
 }
 
-@keyframes typing {
+@keyframes fadeSlideIn {
   from {
-    width: 0;
+    opacity: 0;
+    transform: translateY(50px);
   }
   to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
